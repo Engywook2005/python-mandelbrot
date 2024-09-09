@@ -1,0 +1,1 @@
+print('I don\'t want to talk to you no more, you empty-headed animal food trough wiper! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now go away you silly English kaa-niggits or I shall taunt you a second time!')
