@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y python3-tk && \
 # Copy the rest of the application code into the container
 COPY . .
 
+RUN apt-get update && apt-get install -y x11-apps
+
 # Command to keep the container runnnig.
 CMD ["sh", "-c", "python mandelbrot.py && tail -f /dev/null"]
 

@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')  # Force matplotlib to use the TkAgg backend
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
@@ -65,4 +67,4 @@ class MandelbrotPlotter:
 
 # Run the interactive plot
 mandelbrot_plotter = MandelbrotPlotter()
-plt.show()
+plt.show()  # This should now open an interactive window
