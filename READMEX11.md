@@ -82,4 +82,3 @@ The issue was resolved by setting the DISPLAY variable in the Docker container t
    `docker run -it --rm -e DISPLAY=10.0.0.177:0 -v /tmp/.X11-unix:/tmp/.X11-unix mandelbrot-image`
 
 This ensures that Docker can connect to XQuartz and display graphical applications from within the container.
-

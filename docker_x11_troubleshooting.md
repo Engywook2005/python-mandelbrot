@@ -51,3 +51,10 @@ There are limitations on macOS that cause issues when running GUI apps via Docke
 ## Conclusion
 
 If `xhost +localhost` doesn’t work due to Docker’s networking, using your host’s IP address or setting up `socat` are the most reliable solutions. You could also try temporarily opening up permissions with `xhost +` for development purposes but be aware of the security implications.
+
+### Stack Overflow References:
+
+1. [Docker X11 issue with macOS and `$DISPLAY`](https://stackoverflow.com/questions/51203334/docker-x11-issue-with-osx-display)
+2. [Running GUI apps in a Docker container with XQuartz](https://stackoverflow.com/questions/16296753/can-you-run-gui-applications-in-a-docker-container)
+3. [XQuartz permissions issues with Docker](https://stackoverflow.com/questions/23815179/x11-forwarding-using-xhost)
+4. [Using socat for port forwarding with Docker and X11](https://stackoverflow.com/questions/25281996/docker-gui-x11-forwarding-with-socat)
