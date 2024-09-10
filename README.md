@@ -1,38 +1,66 @@
 
-# python-docker
+# Mandelbrot App in Docker
 
-Meant to be used as template directory for python projects. No need to install Python locally.
-What happens if I try to run an app that includes graphics? I should expect that to work, yes?
+This guide will walk you through setting up and running a Python Mandelbrot app inside a Docker container, with graphical rendering handled by your local machine's X Server.
 
-As it is, this is a Python sandbox that can be useful in learning Python, either as a companion to a course or as a standalone. Maybe call this repo python-docker-sandbox? But this is not the only use of this repo... hmmm, think about it.
+## Prerequisites
 
-Minimum Viable Product - must contain volume to so files added locally end up in the container automatically
+Before you begin, make sure you have the following installed on your system:
 
-1. Will however need to:
-   1. Install Docker
-   2. Steps differ for Windows vs Mac. Windows recommend setting a Linux partitiomn
+- Docker
+- X11 (X Server) configured on your local machine
+- Python dependencies for the Mandelbrot app
 
-## Build the container
+## Getting Started
 
-```docker-compose up -d```
+### 1. Clone the repository
 
-## Have a look what's in the container if we need to
+First, clone the repository containing the Mandelbrot app:
 
-```docker exec -it python-docker-container sh```
+```bash
+git clone https://github.com/your-repo/mandelbrot-app.git
+cd mandelbrot-app
+```
 
-## Killing the container
+### 2. Build the Docker image
 
-```docker-compose down```
+You need to build the Docker image that will contain the Python Mandelbrot app. In the root directory of the project, run the following command:
 
-## Not step by step (done for you in this repo) but how to get into the trunk if you need to
+```bash
+docker build -t mandelbrot-image .
+```
 
-    ## Produce Dr Image from DockerFile
+### 3. Run the Docker container with X11 forwarding
 
-    Go to directory containing Dockerfile then.    
-    ```docker build -t my-python-image .```
-    Will build an image that can run Python when run as a container.
-    Will need to set up a local workdir
+To allow graphical rendering from the Docker container to your local machine, you'll need to set up X11 forwarding.
 
-Shit - Windows - best solutuion where I don't need to think about it?
+If your X Server allows local connections (checked using `xhost`), you can run the container without any further permissions needed:
 
-Not so much marketable then.
+```bash
+docker run -it --rm     -e DISPLAY=$DISPLAY     -v /tmp/.X11-unix:/tmp/.X11-unix     mandelbrot-image
+```
+
+This command mounts the X11 socket and forwards the display environment variable to allow the Docker container to communicate with your X Server.
+
+#### **What is an X Server?**
+
+An X Server is a graphical windowing system used on Unix and Linux systems. It manages windows, input devices, and display graphics. In this case, the X Server is running on your local machine, and the Docker container uses it to display the Mandelbrot app's graphical output.
+
+### 4. Verify the app is running
+
+Once the container is running, your Mandelbrot app should display a graphical window on your local machine. You can check the logs of the container to ensure there are no errors:
+
+```bash
+docker logs <container_id>
+```
+
+### 5. Troubleshooting
+
+If you encounter issues with the graphical window not rendering, ensure that:
+
+- Your X Server is running (`xclock` or `xeyes` can be used to check if it works).
+- The Docker container has proper permissions to access your X Server (`xhost +local:docker` can be used, if necessary).
+
+## Cleanup
+
+To stop the container, simply close the app window or press `Ctrl + C` in the terminal where the container is running.
