@@ -54,7 +54,8 @@ If `xhost +localhost` doesn’t work due to Docker’s networking, using your ho
 
 ### Stack Overflow References:
 
-1. [Docker X11 issue with macOS and `$DISPLAY`](https://stackoverflow.com/questions/51203334/docker-x11-issue-with-osx-display)
-2. [Running GUI apps in a Docker container with XQuartz](https://stackoverflow.com/questions/16296753/can-you-run-gui-applications-in-a-docker-container)
-3. [XQuartz permissions issues with Docker](https://stackoverflow.com/questions/23815179/x11-forwarding-using-xhost)
-4. [Using socat for port forwarding with Docker and X11](https://stackoverflow.com/questions/25281996/docker-gui-x11-forwarding-with-socat)
+1. [Run GUI Applications with Docker for Mac and X11 Binding - how this is supposed to work](https://stackoverflow.com/questions/42852343/run-gui-applications-with-docker-for-mac-and-x11-binding)
+2. [Docker X11 issue with macOS and `$DISPLAY`](https://stackoverflow.com/questions/51203334/docker-x11-issue-with-osx-display)
+3. [Running GUI apps in a Docker container with XQuartz](https://stackoverflow.com/questions/16296753/can-you-run-gui-applications-in-a-docker-container)
+4. [XQuartz permissions issues with Docker](https://stackoverflow.com/questions/23815179/x11-forwarding-using-xhost)
+5. [Using socat for port forwarding with Docker and X11](https://stackoverflow.com/questions/25281996/docker-gui-x11-forwarding-with-socat)

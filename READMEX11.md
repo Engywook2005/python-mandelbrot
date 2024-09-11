@@ -3,6 +3,9 @@
 ## Overview
 This project runs a Mandelbrot generator Python script inside a Docker container with X11 forwarding to display the output on the host machine using XQuartz on macOS.
 
+Here is a reference on how to get that to work:
+[Docker for Mac and GUI applications](https://fredrikaverpil.github.io/blog/2016/07/31/docker-for-mac-and-gui-applications)
+
 ### Prerequisites
 - Docker installed on your system
 - XQuartz installed and running on macOS
